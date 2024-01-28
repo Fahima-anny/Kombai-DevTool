@@ -1,0 +1,520 @@
+<!doctype html>
+<html data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kombai</title>
+  <link rel="shortcut icon" href="https://i.ibb.co/4VmXPTw/download.jpg" type="image/x-icon">
+  <link href="./output.css" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.5.0/dist/full.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+ 
+
+<style>
+  .NBhOo {
+    border-radius: 50px;
+    color: rgb(237, 237, 237);
+    box-shadow: rgba(54, 196, 197, 0.063) 0px 0px 20px 10px;
+    align-items: center;
+    justify-content: center;
+    background-image: conic-gradient( from var(--border-angle), transparent 50%, #de7bc4, #36c4c5 );
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    animation: 3s linear 0s infinite normal none running bg-spin;
+  }
+
+
+  *, ::before, ::after {
+    box-sizing: inherit;
+  }
+
+#steerSection{
+  background-image: url(https://i.ibb.co/jDRzNfj/32582969-ddf6.jpg);
+  height: 120vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.btnShadow{
+  box-shadow: 0 0 5px gainsboro;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:576px) {
+  body{text-align: center;}
+
+  #steerSection{
+  height: 150vh;
+}
+
+
+
+
+}
+
+
+
+</style>
+
+
+
+</head>
+<body class="text-white relative">
+
+<section class="my-2">
+<div class="flex justify-center gap-2 "> 
+  <div class="w-4"><img src="data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgNTEyIDUxMiIgaGVpZ2h0PSI1MTIiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnPjxwYXRoIGQ9Im0yNzIuNyAyNDkuN3YyNjEuM2wtMjA4LjEtMjAuMXYtMTgwLjRsMTU3LTkuN3oiIGZpbGw9IiNmZWNlNjYiLz48Zz48Zz48cGF0aCBkPSJtMTYwLjEgNDcyLjRjLS4zIDAtLjUgMC0uOCAwbC01OS45LTUuOGMtNC42LS40LTgtNC41LTcuNS05LjEuNC00LjYgNC42LTcuOSA5LjEtNy41bDU5LjkgNS44YzQuNi40IDggNC41IDcuNSA5LjEtLjQgNC4zLTQuMSA3LjUtOC4zIDcuNXoiIGZpbGw9IiM3MGM5ZTkiLz48L2c+PC9nPjxnPjxnPjxwYXRoIGQ9Im0xMjguNSA0MzQuOGMtLjMgMC0uNSAwLS44IDBsLTI4LjMtMi44Yy00LjYtLjQtOC00LjUtNy41LTkuMS40LTQuNiA0LjYtOCA5LjEtNy41bDI4LjMgMi43YzQuNi40IDggNC41IDcuNSA5LjEtLjQgNC4zLTQgNy42LTguMyA3LjZ6IiBmaWxsPSIjNzBjOWU5Ii8+PC9nPjwvZz48cGF0aCBkPSJtNDQ0LjggMzA1LjZ2ODVjLTMuMS0uNS02LjMtLjgtOS42LS44LTMyLjcgMC01OS4yIDI2LjUtNTkuMiA1OS4yIDAgMTkuMyA5LjIgMzYuNCAyMy41IDQ3LjJsLTEyNi44IDE0Ljh2LTI2MS4zbDQ3LjUgNDcuNWM0MS42IDIuOCA4My4xIDUuNyAxMjQuNiA4LjR6IiBmaWxsPSIjZjViNTQwIi8+PHBhdGggZD0ibTI3Mi43IDI0OS43LTUxLjEgNTEuMS0xNTcgOS43LTQ2LjkgMi45IDQ2LjktNDYuOXoiIGZpbGw9IiNmZmQ4OGEiLz48cGF0aCBkPSJtNDg2LjUgMzA4LjRjLTEzLjktLjktMjcuOC0xLjgtNDEuNy0yLjgtNDEuNS0yLjctODMuMS01LjYtMTI0LjYtOC40bC00Ny41LTQ3LjUgMTcyLjEgMTcuMmMxMy45IDEzLjggMjcuOCAyNy43IDQxLjcgNDEuNXoiIGZpbGw9IiNmZmQ4OGEiLz48ZyBmaWxsPSIjZWE2NTUyIj48cGF0aCBkPSJtMjU0LjkgMi43IDE4IDM2LjRjLjUuOSAxLjMgMS42IDIuMyAxLjdsNDAuMiA1LjhjMi41LjQgMy42IDMuNSAxLjcgNS4zbC0yOS4xIDI4LjRjLS43LjctMS4xIDEuNy0uOSAyLjhsNi45IDQwYy40IDIuNS0yLjIgNC41LTQuNSAzLjNsLTM1LjktMTguOWMtLjktLjUtMi0uNS0yLjkgMGwtMzUuOSAxOC45Yy0yLjMgMS4yLTQuOS0uNy00LjUtMy4zbDYuOS00MGMuMi0xLS4yLTItLjktMi44bC0yOS4yLTI4LjNjLTEuOC0xLjgtLjgtNC45IDEuNy01LjNsNDAuMi01LjhjMS0uMSAxLjktLjggMi4zLTEuN2wxOC0zNi40YzEuMi0yLjQgNC40LTIuNCA1LjYtLjF6Ii8+PHBhdGggZD0ibTEwOC44IDY0LjkgMTAuNSAyMS4xYy4zLjUuOC45IDEuNCAxbDIzLjMgMy40YzEuNS4yIDIuMSAyIDEgMy4xbC0xNyAxNi4zYy0uNC40LS42IDEtLjUgMS42bDQgMjMuMmMuMyAxLjUtMS4zIDIuNi0yLjYgMS45bC0yMC44LTEwLjljLS41LS4zLTEuMi0uMy0xLjcgMGwtMjAuOCAxMC45Yy0xLjMuNy0yLjktLjQtMi42LTEuOWw0LTIzLjJjLjEtLjYtLjEtMS4yLS41LTEuNmwtMTYuOS0xNi40Yy0xLjEtMS0uNS0yLjkgMS0zLjFsMjMuMi0zLjNjLjYtLjEgMS4xLS41IDEuNC0xbDEwLjQtMjEuMWMuNy0xLjQgMi42LTEuNCAzLjIgMHoiLz48cGF0aCBkPSJtMzk4LjYgNjQuOSAxMC40IDIxLjFjLjMuNS44LjkgMS40IDFsMjMuMyAzLjRjMS41LjIgMi4xIDIgMSAzLjFsLTE2LjggMTYuNGMtLjQuNC0uNiAxLS41IDEuNmw0IDIzLjJjLjMgMS41LTEuMyAyLjYtMi42IDEuOWwtMjAuOC0xMC45Yy0uNS0uMy0xLjItLjMtMS43IDBsLTIwLjggMTAuOWMtMS4zLjctMi45LS40LTIuNi0xLjlsNC0yMy4yYy4xLS42LS4xLTEuMi0uNS0xLjZsLTE2LjgtMTYuNGMtMS4xLTEtLjUtMi45IDEtMy4xbDIzLjMtMy40Yy42LS4xIDEuMS0uNSAxLjQtMWwxMC40LTIxLjFjLjMtMS40IDIuMi0xLjQgMi45IDB6Ii8+PC9nPjxnPjxwYXRoIGQ9Im0yNTIuMSAyMjcuNmMtNC42IDAtOC4zLTMuNy04LjMtOC4zdi01NS45YzAtNC42IDMuNy04LjMgOC4zLTguM3M4LjMgMy43IDguMyA4LjN2NTUuOWMwIDQuNS0zLjcgOC4zLTguMyA4LjN6IiBmaWxsPSIjNzBjOWU5Ii8+PC9nPjxnPjxwYXRoIGQ9Im0zNjcuNCAyMzguNWMtMS4xIDAtMi4zLS4yLTMuNC0uNy00LjItMS45LTYuMS02LjgtNC4zLTExbDI3LjMtNjEuN2MxLjktNC4yIDYuOC02LjEgMTEtNC4zIDQuMiAxLjkgNi4xIDYuOCA0LjMgMTFsLTI3LjMgNjEuOGMtMS40IDMuMS00LjQgNC45LTcuNiA0Ljl6IiBmaWxsPSIjNzBjOWU5Ii8+PC9nPjxnPjxwYXRoIGQ9Im0zMTQuOCAyMzQuM2MtLjggMC0xLjUtLjEtMi4zLS4zLTQuNC0xLjMtNy01LjktNS43LTEwLjNsMjMuNi04Mi4xYzEuMy00LjQgNS45LTcgMTAuMy01LjdzNyA1LjkgNS43IDEwLjNsLTIzLjYgODIuMWMtMSAzLjYtNC4zIDYtOCA2eiIgZmlsbD0iIzcwYzllOSIvPjwvZz48Zz48cGF0aCBkPSJtMTkxLjEgMjM1Yy0zLjYgMC03LTIuNC04LTZsLTIzLTgwYy0xLjMtNC40IDEuMy05LjEgNS43LTEwLjMgNC40LTEuMyA5LjEgMS4zIDEwLjMgNS43bDIzIDgwYzEuMyA0LjQtMS4zIDkuMS01LjcgMTAuMy0uNy4yLTEuNS4zLTIuMy4zeiIgZmlsbD0iIzcwYzllOSIvPjwvZz48Zz48cGF0aCBkPSJtMTM2LjggMjM4LjVjLTMuMiAwLTYuMy0xLjktNy42LTVsLTI2LjgtNjAuNmMtMS45LTQuMiAwLTkuMSA0LjMtMTEgNC4yLTEuOSA5LjEgMCAxMSA0LjNsMjYuOCA2MC42YzEuOSA0LjIgMCA5LjEtNC4zIDExLTEuMS41LTIuMi43LTMuNC43eiIgZmlsbD0iIzcwYzllOSIvPjwvZz48cGF0aCBkPSJtNDgxLjUgNDg1LjdjLTEwLjggMTMuNi0yNy41IDIyLjQtNDYuMyAyMi40LTEzLjQgMC0yNS43LTQuNS0zNS42LTExLjktMTQuMy0xMC44LTIzLjYtMjcuOS0yMy42LTQ3LjIgMC0xOC44IDguNy0zNS41IDIyLjQtNDYuMy04LjEgMTAuMS0xMi45IDIyLjktMTIuOSAzNi43IDAgMTkuMyA5LjIgMzYuNCAyMy41IDQ3LjIgOS45IDcuNSAyMi4zIDExLjkgMzUuNiAxMS45IDE0IDAgMjYuOC00LjggMzYuOS0xMi44eiIgZmlsbD0iIzU4YjRkOSIvPjxwYXRoIGQ9Im00OTQuMyA0NDljMCAxMy45LTQuOCAyNi43LTEyLjggMzYuNy0xMC4xIDgtMjIuOSAxMi44LTM2LjcgMTIuOC0xMy40IDAtMjUuNy00LjUtMzUuNi0xMS45LTE0LjMtMTAuOC0yMy41LTI3LjktMjMuNS00Ny4yIDAtMTMuOSA0LjgtMjYuNyAxMi45LTM2LjcgMTAuMS04LjEgMjIuOS0xMi45IDM2LjctMTIuOSAzLjMgMCA2LjUuMyA5LjYuOCAyOCA0LjYgNDkuNCAyOSA0OS40IDU4LjR6IiBmaWxsPSIjNzBjOWU5Ii8+PHBhdGggZD0ibTQ2NS41IDQ0MC42aC0yMS45di0yMmMwLTQuNi0zLjctOC4zLTguMy04LjNzLTguMyAzLjctOC4zIDguM3YyMmgtMjEuOWMtNC42IDAtOC4zIDMuNy04LjMgOC4zczMuNyA4LjMgOC4zIDguM2gyMS45djIyYzAgNC42IDMuNyA4LjMgOC4zIDguM3M4LjMtMy43IDguMy04LjN2LTIyaDIxLjljNC42IDAgOC4zLTMuNyA4LjMtOC4zcy0zLjctOC4zLTguMy04LjN6IiBmaWxsPSIjZWE2NTUyIi8+PC9nPjwvc3ZnPg==" alt=""></div> <p class="text-sm ">We just launched <span class="text-[#36c4c5]">Kombai for Email</span> . Convert email designs to code that works even on Outlook, in a click.<span class="text-[#36c4c5]"> Check it out</span> .</p>
+</div>
+</section>
+
+<hr class="opacity-25">
+
+
+
+
+
+<!-- nav section start  -->
+<section class="sticky top-0 w-full z-50">
+
+<div class="">
+  <div class="navbar bg-base-100 flex flex-col md:flex-row  px-20">
+    <div class="navbar-start ">
+      <div class="dropdown">
+        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+        </div>
+        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 font-medium">
+          <li><a>Docs</a></li>
+          <li><a>Technology</a></li>
+          <li><a>Pricing</a></li>
+          <li><a>Blog</a></li>
+          <li><a>Email Templates</a></li>
+        </ul>
+      </div>
+      <a class=" text-xl flex gap-2 text-[#36c4c5] font-medium"><div class="w-8 "><img src="https://i.ibb.co/3MmJ2qp/03cced31-6c41-433d-af87-dbfbf85c8494.webp" alt=""></div>Kombai </a>
+
+      <div class="navbar-center hidden lg:flex ">
+        <ul class="menu menu-horizontal ps-8 font-medium ">
+          <li><a>Docs</a></li>
+          <li><a>Technology</a></li>
+          <li><a>Pricing</a></li>
+          <li><a>Blog</a></li>
+          <li><a>Email Templates</a></li>
+        </ul>
+      </div>
+
+    </div>
+    
+    <div class="navbar-end flex gap-4 justify-center md:justify-end">
+      <a class="btn bg-gray-700 text-white font-semibold text-[16px] px-7 py-0"><p>See Examples</p><div><img src="https://i.ibb.co/ctFxx5z/down-1.png" alt=""></div> </a>
+      <a class="btn bg-[#36c4c5] hover:bg-[#8bfcfc]  text-black font-semibold text-[16px] px-7 py-0""> <p>Try Kombai</p> <div><img src="https://i.ibb.co/ydkw8fn/down.png" alt=""></div> </a>
+    </div>
+  </div>
+</div>
+<!-- nav section end  -->
+
+
+<hr class="opacity-25">
+
+</section>
+
+
+
+
+<!-- banner section start  -->
+<section class="py-20 text-center">
+
+<div class="rounded-full py-4 shadow-[] w-11/12 md:w-1/3 mx-auto text-center heroSectionstyle__Chip-sc-1podeqt-1 NBhOo ">
+  <p class="text-2xl font-medium">Introducing Kombai</p>
+  <p class="text-[#36c4c5] text-sm">(Research Preview)</p>
+</div>
+
+<p class="mt-16 mb-12 text-5xl font-bold">A new model trained to code <span class="text-[#36c4c5]"> email & web <br>  designs like humans</span> </p>
+
+<p class="font-semibold text-xl mb-12">Input your design files. Get high-quality HTML, CSS or React code in a click.</p>
+
+<div class="navbar-end flex flex-col md:flex-row gap-4 justify-center mx-auto">
+  <a class="btn bg-[#36c4c5] hover:bg-[#8bfcfc] text-black font-semibold text-lg px-0 md:px-7 py-0""> <p>Try Kombai</p> <div><img src="https://i.ibb.co/ydkw8fn/down.png" alt=""></div> </a>
+  <a class="btn bg-gray-700 text-white font-semibold text-lg px-0 md:px-7 py-0"><p>See Examples</p><div><img src="https://i.ibb.co/ctFxx5z/down-1.png" alt=""></div> </a>
+</div>
+</div>
+
+</section>
+<!-- banner section end -->
+
+
+
+
+<!-- video section start  -->
+<section class="my-10 relative">
+  <hr class="opacity-30 absolute top-1/2 w-full z-[-1]">
+
+<div class="w-fit mx-auto ">
+  <iframe src="https://www.youtube.com/embed/olYt2fweuWU" frameborder="0" class="rounded-xl w-[80vw] h-[70vh]">
+</iframe>
+
+</div>
+</section>
+<!-- video section end -->
+
+
+
+
+
+
+<!-- product section start  -->
+<section class="my-32 mx-2 md:mx-32 ">
+
+  <div class="flex justify-center">
+<p class="text-center font-bold text-4xl">#1 DevTool on Product Hunt in 2023</p>
+<div><img src="https://kombai.com/static/ph-logo-549d68c571085b5228a34f81df9107c1.svg" alt=""></div>
+</div>
+
+<div class="flex justify-center gap-8 mt-5 mb-20">
+  <div><img src="https://kombai.com/static/potm-w-21f4e32f940a37285576128ec458529b.svg" alt=""></div>
+  <div><img src="https://kombai.com/static/potw-w-3e69a1d247952f6fa4732895e72f5b63.svg" alt=""></div>
+  <div><img src="https://kombai.com/static/potd-w-883fea5c89cd819b5a474ec4611ee77e.svg" alt=""></div>
+</div>
+
+
+<div class="text-center font-bold text-4xl ">
+  <h1 class="py-10"> <span class="text-pink-400 ">Rediscover the fun </span> of building Frontend!</h1>
+  <p class="font-semibold text-xl">Life is too short to struggle with mundane UI code. Spend less time writing styles & DOM, and more on the complex <br> business logic that only you can write.</p>
+</div>
+
+<div class="grid grid-col-1 md:grid-cols-3 gap-4 my-20">
+ 
+  <div class="col-1 border border-2 border-gray-600 rounded-xl bg-[#1f313d] p-7">
+      <ul class="flex flex-col gap-3">
+        <li><div class="collapse border border-1 border-gray-600 hover:border-cyan-400 " checked="checked">
+          <input type="checkbox" /> 
+          <div class="collapse-title text-xl rounded-lg text-white focus:text-cyan-400">
+            Use designs as you’ve got them
+          </div>
+          <div class="collapse-content "> 
+            <p>No need to tag, name, or group elements or use auto-layout.</p>
+          </div>
+        </div>
+      </li>
+        <li><div class="collapse border border-1 border-gray-600 hover:border-cyan-400">
+          <input type="checkbox" /> 
+          <div class="collapse-title text-xl rounded-lg text-white focus:text-cyan-400">
+            Logical div-structure & React components
+          </div>
+          <div class="collapse-content"> 
+            <p>With human-like names for classes and components.            </p>
+          </div>
+        </div>
+      </li>
+        <li><div class="collapse border border-1 border-gray-600 hover:border-cyan-400">
+          <input type="checkbox" /> 
+          <div class="collapse-title text-xl rounded-lg text-white focus:text-cyan-400">
+            CSS for flex with no hardcoded dimensions          </div>
+          <div class="collapse-content"> 
+            <p>Appropriate flex-grow, flex-shrink, justify-content, align-items, gap, padding etc.</p>
+          </div>
+        </div>
+      </li>
+        <li><div class="collapse border border-1 border-gray-600 hover:border-cyan-400">
+          <input type="checkbox" /> 
+          <div class="collapse-title text-xl rounded-lg text-white focus:text-cyan-400">
+            High-quality JS code with loops & conditions
+          </div>
+          <div class="collapse-content"> 
+            <p>And mock data from design inputs that can be easily replaced.            </p>
+          </div>
+        </div>
+      </li>
+        <li><div class="collapse border border-1 border-gray-600 hover:border-cyan-400">
+          <input type="checkbox" /> 
+          <div class="collapse-title text-xl rounded-lg text-white focus:text-cyan-400">
+            Form elements as functional components </div>
+          <div class="collapse-content"> 
+            <p>Buttons, inputs, selects, checkbox, and switch using MUI Base or HTML.            </p>
+          </div>
+        </div>
+      </li>
+       
+      </ul>
+  </div>
+
+
+  <div class="col-span-2 border border-2 border-gray-600 rounded-xl bg-[#202c31] p-7">
+ <div class="grid md:grid-cols-2 gap-7 my-5">
+  <div class="col mt-0 md:mt-44">
+
+   <div>
+    <h1 class="text-center text-pink-400 text-2xl mb-14">Design Input</h1>
+    <div class="bg-black h-96 md:h-72 w-75  rounded-3xl flex justify-center relative ">
+
+<div class="w-1/2 md:w-10/12 absolute top-[-30px]"><img class="rounded-2xl " src="https://kombai.com/static/FigmaA1-ec35c3a45cafb61f2a3eb4dddd24ddf4.png" alt="">
+</div>
+
+<button class=" btn text-white mt-72 md:mt-52 bg-pink-400 hover:bg-pink-300 font-semibold text-lg px-5">Open in Figma</button>
+    </div>
+  </div>
+  </div>
+
+ <div class="col ">
+
+  <div class="">
+   <div>
+   
+    <div class="bg-black h-96 md:h-72 w-75  rounded-3xl flex justify-center relative ">
+
+<div class="w-1/2 md:w-10/12  absolute bottom-[-30px]"><img class="rounded-2xl " src="https://kombai.com/static/FigmaA1-ec35c3a45cafb61f2a3eb4dddd24ddf4.png" alt="">
+</div>
+
+<button class=" btn text-black  bg-[#36c4c5] mt-5  font-semibold text-lg px-5">Open in Kombai</button>
+    </div>
+    <h1 class="text-center text-[#36c4c5] text-2xl mt-12">Auto-generated code
+
+    </h1>
+  </div>
+  </div>
+  </div>
+ </div>
+  </div>
+</div>
+
+</section>
+<!-- product section end -->
+
+
+
+
+
+
+
+<!-- steer section start  -->
+<section class="bg-white text-center pt-20 pb-32">
+
+<h1 class="text-4xl text-black font-bold mb-20">Steer Kombai with <span class="text-pink-400"> "design prompt engineering"</span> to get the <br class="hidden lg:block"> code you want</h1>
+
+<div class="mx-0 md:mx-20 rounded-3xl py-16  px-6 md:px-20" id="steerSection">
+<div>
+  <div class="flex gap-1 border border-cyan-400 w-full md:w-1/2 mx-auto rounded-xl p-1 mb-10">
+<button class="btn py-0 text-lg w-1/2 bg-cyan-500 hover:bg-cyan-400 text-black">Initial Promt</button>
+<button class="btn py-0 text-lg w-1/2 bg-black border-0 text-white" >Engineered Promt</button>
+  </div>
+  <div class="flex flex-col md:flex-row gap-10">
+    <div>
+<div class=" w-2/3 md:w-full mx-auto"><img class="rounded-2xl btnShadow" src="https://kombai.com/static/1-36a1f301d252c370162873bb9f7ea135.png" alt=""></div>
+<button class=" btn text-white bg-pink-400 hover:bg-pink-300 font-semibold text-lg px-5 my-10">Open in Figma</button>
+<div class="text-center text-lg">In this design, "Integrated Calendars", "Usage Data", and "Meeting Options" sections do not have any visible boundaries.</div>
+    </div>
+<div>
+<div class=" w-2/3 md:w-full mx-auto"><img class="rounded-2xl btnShadow" src="https://kombai.com/static/2-90e1386c3e5d3f44abeff539dc4e20d6.png" alt=""></div>
+<button class=" btn text-white bg-cyan-500 hover:bg-cyan-400 font-semibold text-lg px-5 my-10">Open in Kombai</button>
+<div class="text-center text-lg">Kombai cannot figure out the top cards visually. So, it thinks goes by alignment of the items and splits the whole section into 3 rows.
+</div>
+</div>
+  </div>
+</div>
+</div>
+
+</section>
+<!-- steer section end -->
+
+
+
+<!-- FAQ section start -->
+<section class=" pt-28 px-0 md:px-20">
+
+<div class="border border-2 border-gray-600 rounded-xl bg-[#3d3e3f]">
+
+<h1 class="text-4xl text-center text-white font-bold mt-20 mb-10">Frequently asked questions</h1>
+
+<div class="w-full md:w-2/3 mx-auto">
+
+ 
+  <div class="collapse collapse-plus border-b border-b-gray-600 ">
+    <input type="radio" name="my-accordion-3" /> 
+    <div class="collapse-title text-2xl py-8 font-medium ">
+      Wait! Can’t you just get all the UI code from Figma itself?
+    </div>
+    <div class="collapse-content"> 
+      <p>Unfortunately, Figma - a great tool for designers and design-to-code handoff, does not provide much useful code for real-world developers.
+
+        Though developers can get some simple CSS properties, such as color, font, borders, fixed heights, and widths, from Figma, they still need to write most of the UI code themselves (DOM structure, flex-related CSS, react components etc.).
+        
+        There are some Figma-to-code plugins available in the Figma marketplace. But they only generate "spaghetti code", often with fixed dimensions & positions in CSS, that are unsuitable for modern responsive applications. Their code outputs also tend to be very hard to read and modify (think unnatural div structures, lots of unnecessary codes, no meaningful class names, etc.)</p>
+    </div>
+  </div>
+  <div class="collapse collapse-plus border-b border-b-gray-600 ">
+    <input type="radio" name="my-accordion-3" /> 
+    <div class="collapse-title text-2xl py-8 font-medium ">
+      Do I have to tag/ name layers specifically in Figma or use auto-layout?
+
+
+    </div>
+    <div class="collapse-content"> 
+      <p>No. You do not have to tag, name, or group design elements in any specific way or use auto-layout.
+
+        Kombai is trained to create code based on what the design would “look like” to a developer.</p>
+    </div>
+  </div>
+  <div class="collapse collapse-plus border-b border-b-gray-600 ">
+    <input type="radio" name="my-accordion-3" /> 
+    <div class="collapse-title text-2xl py-8 font-medium ">
+      What’s the tech under the hood?
+
+
+    </div>
+    <div class="collapse-content"> 
+      <p>Kombai is an ensemble of deep learning and heuristics models, each purpose-built for a specific sub-task of interpreting UI designs and generating UI code from the derived interpretation. The models have been trained to emulate the implicit and explicit inferences made by developers while building UI code from designs.
+
+        You can read more about our technology here.</p>
+    </div>
+  </div>
+  <div class="collapse collapse-plus border-b border-b-gray-600 ">
+    <input type="radio" name="my-accordion-3" /> 
+    <div class="collapse-title text-2xl py-8 font-medium ">
+      Are you telling me that Kombai’s code output is not coming from an LLM or publicly available model?
+
+
+    </div>
+    <div class="collapse-content"> 
+      <p>Yes. Because none of the existing LLMs/ GenAI models can understand UI designs, we had to spend the last 15 months building and training purpose-built models from scratch.
+
+        We use public LLMs to improve some parts of the code, but 95%+ of Kombai’s code output come from it’s purpose-built models.</p>
+    </div>
+  </div>
+  <div class="collapse collapse-plus border-b border-b-gray-600 ">
+    <input type="radio" name="my-accordion-3" /> 
+    <div class="collapse-title text-2xl py-8 font-medium ">
+      What frontend languages & frameworks does Kombai support?
+
+
+    </div>
+    <div class="collapse-content"> 
+      <p>Currently, Kombai generates React and HTML + CSS Codes. You can also choose to get the CSS output either in vanilla CSS or tailwind.
+
+        Many of our early users have also been able to use Kombai with non-React frameworks, like Vue, Svelte, Angular, and Django, by taking our HTML + CSS output and modifying it minimally as per their frameworks of choice. Usually, ChatGPT is fairly good at converting Kombai's generated code to other frameworks or languages. 🙂</p>
+    </div>
+  </div>
+  <div class="collapse collapse-plus border-b border-b-gray-600 ">
+    <input type="radio" name="my-accordion-3" /> 
+    <div class="collapse-title text-2xl py-8 font-medium ">
+      Is Kombai free?
+
+
+    </div>
+    <div class="collapse-content"> 
+      <p>Kombai is currently in “public research preview” and is free to use for individual developers.</p>
+    </div>
+  </div>
+  <div class="collapse collapse-plus border-b border-b-gray-600 ">
+    <input type="radio" name="my-accordion-3" /> 
+    <div class="collapse-title text-2xl py-8 font-medium ">
+      I tried Kombai, but some of the code doesn’t look right. What do I do now?
+
+
+    </div>
+    <div class="collapse-content"> 
+      <p>As a generative model, Kombai doesn’t follow strictly rule-based boundaries. At times, it can produce incorrect outputs, particularly in cases where
+
+        •   the design is ambiguous, i.e., there are not enough visual cues in the design for Kombai to derive the right inferences with high confidence
+        •   there are “unnatural” deviations in the visual aspects of a design, e.g., spacing and alignment, by a margin bigger than the models’ acquired fault tolerance
+        
+        In such cases, you can try regenerating the code using the “regenerate button” in the app. If that doesn’t work either,
+        
+        •   you can try to nudge the model using “design prompt engineering”, similar to how you’d prompt engineer texts to steer ChatGPT or Claude. Read this guide for more details and examples</p>
+    </div>
+  </div>
+
+</div>
+
+
+
+</div>
+
+<div class="bg-[#36c4c5] py-16 text-center text-gray-800 my-20 rounded-xl">
+  <h1 class=" text-4xl font-semibold text-black">Yay! More Buttons! 🙃</h1>
+  <p class="text-lg font-medium mt-8 mb-6">Are you one of the folks who directly jump (or perhaps, Vim: G ?) to the end of the page? Or, maybe, you are still undecided about taking <br> Kombai for a spin? Either way, here are the Call-to-Actions for you again!</p>
+  <p class="text-lg font-medium"> TL;DR: Please try us. In case you don’t have a design ready, we have a bunch of examples that you can try in a click.</p>
+<div class="flex flex-col md:flex-row gap-5 mt-10 justify-center items-center">
+  <button class="btn w-[180px] text-lg font-bold text-white bg-black">Try Kombai</button>
+  <button class="btn w-[180px] text-lg font-bold text-black bg-white border-0 hover:bg-slate-300">See Examples</button>
+</div>
+</div>
+
+</section>
+<!-- FAQ section end -->
+
+
+
+
+<!-- experience section start  -->
+<section class="flex gap-3 justify-center items-center mb-24">
+
+  <div class="">
+  <img class="w-1/2" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTE1IiBoZWlnaHQ9IjQ2IiB2aWV3Qm94PSIwIDAgMTE1IDQ2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMTMwM18zKSI+CjxwYXRoIGQ9Ik01Ny41IDBWMTUuMzMzM0gzOC4zMzMzVjQ2SDE5LjE2NjdWMTUuMzMzM0gwVjBINTcuNVoiIGZpbGw9IiNFREVERUQiLz4KPHBhdGggZD0iTTExNSAwSDc2LjY2NjdWMTUuMzMzM0gxMTVWMFoiIGZpbGw9IiNFREVERUQiLz4KPHBhdGggZD0iTTExNSAzMC42NjY3VjQ2SDU3LjVWMTUuMzMzM0g3Ni42NjY3VjMwLjY2NjdIMTE1WiIgZmlsbD0iI0VERURFRCIvPgo8L2c+CjxkZWZzPgo8Y2xpcFBhdGggaWQ9ImNsaXAwXzEzMDNfMyI+CjxyZWN0IHdpZHRoPSIxMTUiIGhlaWdodD0iNDYiIGZpbGw9IndoaXRlIi8+CjwvY2xpcFBhdGg+CjwvZGVmcz4KPC9zdmc+Cg==" alt="">
+</div>
+  
+<div>
+<img class="w-2/3" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjMwIiBoZWlnaHQ9IjQ2IiB2aWV3Qm94PSIwIDAgMjMwIDQ2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMTMwM18xNzEpIj4KPHBhdGggZD0iTTAuMzM2ODgyIDMwLjYxNDFMMy4yNDI0OSAzMC4xNTA5VjMuMzI2N0wwIDIuOTA1NkwwLjE2ODQ0MSAwSDIwLjQ2NTZMMTkuOTYwMyA4LjEyNzI2TDE1LjkxNzcgOC4wMDA5M0wxNS42NjUgMi45MDU2SDkuMzkwNThWMTQuOTkxMkgxMi4xMjc4TDEyLjc1OTQgMTIuMjEyTDE1LjU4MDggMTIuMjk2MlYyMC42MzRIMTIuNzU5NEwxMi4wODU2IDE3Ljc3MDVIOS4zNDg0OFYzMC41NzJIMTUuNjY1TDE2LjI1NDYgMjUuMDEzNEwyMC41MDc3IDI1LjEzOThMMjAuODQ0NiAzMy42MDM5SDAuMjEwNTUxTDAuMzM2ODgyIDMwLjYxNDFaIiBmaWxsPSIjRURFREVEIi8+CjxwYXRoIGQ9Ik0yMi43Mzk1IDMzLjY0NkwyMi44NjU4IDMxLjE2MTVMMjUuMTM5OCAzMC42OTgzVjEzLjc3TDIyLjQ4NjggMTMuNTE3NFYxMC45OTA4TDI5LjE0MDIgMTAuMDIyMkwyOS42NDU2IDExLjQ1NFYxMi40MjI1QzMxLjI0NTcgMTAuNzM4MSAzMy4xODI4IDkuNzI3NDUgMzUuNjY3MyA5LjcyNzQ1QzM5LjI4ODggOS43Mjc0NSA0MS45ODM4IDExLjkxNzIgNDEuOTgzOCAxNi4yNTQ1VjMwLjY1NjJMNDQuMzg0MSAzMS4xMTk0TDQ0LjI1NzggMzMuNjAzOUgzNi4zNDExVjE3LjUxNzhDMzYuMzQxMSAxNS4yMDE4IDM1LjQ5ODkgMTMuODk2MyAzMy4zOTM0IDEzLjg5NjNDMzIuNjc3NSAxMy44OTYzIDMyLjE3MjIgMTQuMDIyNyAzMS42MjQ3IDE0LjIzMzJDMzEuMjg3OSAxNC41MjggMzAuOTUxIDE0Ljk0OTEgMzAuNjU2MiAxNS4zMjgxVjMwLjc0MDRMMzMuMDU2NSAzMS4yMDM2TDMyLjg4OCAzMy42ODgxSDIyLjczOTVWMzMuNjQ2WiIgZmlsbD0iI0VERURFRCIvPgo8cGF0aCBkPSJNMTQ5Ljk1NCAzMy42NDZMMTUwLjAzOSAzMS4xNjE1TDE1Mi4zMTMgMzAuNjk4M1YxMy43N0wxNDkuNjYgMTMuNTE3NFYxMC45OTA4TDE1Ni4zMTMgMTAuMDIyMkwxNTYuODE4IDExLjQ1NFYxMi40MjI1QzE1OC40MTkgMTAuNzM4MSAxNjAuMzU2IDkuNzI3NDUgMTYyLjg0IDkuNzI3NDVDMTY2LjQ2MiA5LjcyNzQ1IDE2OS4xNTcgMTEuOTE3MiAxNjkuMTU3IDE2LjI1NDVWMzAuNjU2MkwxNzEuNTU3IDMxLjExOTRMMTcxLjQzMSAzMy42MDM5SDE2My41NTZWMTcuNTE3OEMxNjMuNTU2IDE1LjIwMTggMTYyLjcxNCAxMy44OTYzIDE2MC42MDggMTMuODk2M0MxNTkuODkyIDEzLjg5NjMgMTU5LjM4NyAxNC4wMjI3IDE1OC44NCAxNC4yMzMyQzE1OC41MDMgMTQuNTI4IDE1OC4xNjYgMTQuOTQ5MSAxNTcuODcxIDE1LjMyODFWMzAuNzQwNEwxNjAuMjcxIDMxLjIwMzZMMTYwLjEwMyAzMy42ODgxSDE0OS45NTRWMzMuNjQ2WiIgZmlsbD0iI0VERURFRCIvPgo8cGF0aCBkPSJNNTYuOTMzIDMzLjE4MjhDNTYuMDA2NSAzMy41NjE4IDU0LjM2NDIgMzMuOTgyOSA1Mi4yMTY2IDMzLjk4MjlDNDkuMzk1MiAzMy45ODI5IDQ2Ljc4NDQgMzIuNzE5NiA0Ni43ODQ0IDI4LjU5MjhWMTMuNzdMNDQuMDg5NCAxMy4zNDg5TDQ0LjIxNTcgMTAuNDAxMkw0Ny4yNDc2IDEwLjI3NDlMNDguNTUzIDUuNzY5MUw1Mi40MjcyIDUuNjAwNjZWMTAuNDQzM0g1Ni41OTYxTDU2LjMwMTMgMTMuMzkxTDUyLjQ2OTMgMTMuODEyMVYyOC42MzQ5QzUyLjQ2OTMgMjkuODU2MSA1My4xNDMgMzAuNjU2MiA1NC40MDY0IDMwLjY1NjJINTYuNjgwM0w1Ni45MzMgMzMuMTgyOFoiIGZpbGw9IiNFREVERUQiLz4KPHBhdGggZD0iTTIxNC41NTIgMzMuNjQ2TDIxNC42MzYgMzEuMjAzNkwyMTYuNzgzIDMwLjY5ODNWMTMuNzdMMjE0LjI1NyAxMy41MTc0VjEwLjk5MDdMMjIxLjE2MyAxMC4wMjIyTDIyMS42MjYgMTEuNjY0NVYxMi4yMTE5QzIyMy40MzcgMTAuODY0NCAyMjUuODc5IDkuOTgwMSAyMjguODI3IDkuOTgwMUwyMjkuODM4IDEwLjg2NDRMMjI5LjEyMiAxNy4yNjUyTDIyNS4zMzIgMTcuMTM4OEwyMjQuOTUzIDEzLjcyNzlDMjI0LjA2OSAxMy44NTQyIDIyMy4yMjYgMTQuMTA2OSAyMjIuNTEgMTQuNjEyMlYzMC43NDA0TDIyNC45MTEgMzEuMjQ1OEwyMjQuNzQyIDMzLjY4ODFIMjE0LjU1MlYzMy42NDZaIiBmaWxsPSIjRURFREVEIi8+CjxwYXRoIGQ9Ik0xMTUuMzgyIDMzLjY0NkwxMTUuNTA4IDMxLjIwMzZMMTE3LjY1NiAzMC42OTgzVjEzLjc3TDExNS4xMjkgMTMuNTE3NFYxMC45OTA3TDEyMi4wMzUgMTAuMDIyMkwxMjIuNDk5IDExLjY2NDVWMTIuMjExOUMxMjQuMzA5IDEwLjg2NDQgMTI2Ljc1MiA5Ljk4MDEgMTI5LjcgOS45ODAxTDEzMC43MSAxMC44NjQ0TDEyOS45MSAxNy4yNjUyTDEyNi4xMiAxNy4xMzg4TDEyNS43NDEgMTMuNzI3OUMxMjQuODU3IDEzLjg1NDIgMTI0LjAxNSAxNC4xMDY5IDEyMy4yOTkgMTQuNjEyMlYzMC43NDA0TDEyNS42OTkgMzEuMjQ1OEwxMjUuNTMxIDMzLjY4ODFIMTE1LjM4MlYzMy42NDZaIiBmaWxsPSIjRURFREVEIi8+CjxwYXRoIGQ9Ik01OC42MTc1IDMzLjY0Nkw1OC43NDM5IDMxLjIwMzZMNjAuODkxNSAzMC42OTgzVjEzLjc3TDU4LjM2NDkgMTMuNTE3NFYxMC45OTA3TDY1LjI3MDkgMTAuMDIyMkw2NS43MzQyIDExLjY2NDVWMTIuMjExOUM2Ny41NDQ5IDEwLjg2NDQgNjkuOTg3MyA5Ljk4MDEgNzIuODkyOSA5Ljk4MDFMNzMuOTAzNSAxMC44NjQ0TDczLjE4NzcgMTcuMjY1Mkw2OS4zOTc3IDE3LjEzODhMNjkuMDE4NyAxMy43Mjc5QzY4LjEzNDQgMTMuODU0MiA2Ny4yOTIyIDE0LjEwNjkgNjYuNTc2NCAxNC42MTIyVjMwLjc0MDRMNjguOTc2NiAzMS4yNDU4TDY4LjgwODIgMzMuNjg4MUg1OC42MTc1VjMzLjY0NloiIGZpbGw9IiNFREVERUQiLz4KPHBhdGggZD0iTTgwLjQzMDYgMjMuMzI5QzgwLjQzMDYgMjcuMzcxNiA4Mi4xOTkyIDMwLjQ4NzggODUuNjk0NCAzMC40ODc4Qzg3LjUwNTEgMzAuNDg3OCA4OC45MzY5IDMwLjEwODggOTAuNjIxMyAyOS4zMDg3TDkxLjU4OTggMzEuNTQwNUM4OS44NjMzIDMyLjkzMDEgODcuMzM2NyAzMy45ODI5IDg0LjE3ODQgMzMuOTgyOUM3OC4wMzAzIDMzLjk4MjkgNzQuNDkzIDI4LjY3NyA3NC40OTMgMjEuODU1MkM3NC40OTMgMTYuMDQ0IDc3LjA2MTggOS42ODUzNSA4NC4wOTQyIDkuNjg1MzVDOTAuMjQyMyA5LjY4NTM1IDkyLjU1ODMgMTUuMzcwMiA5Mi41NTgzIDIxLjY4NjdMOTEuOTY4OCAyMy4yMDI3TDgwLjQzMDYgMjMuMzI5Wk04MC4zNDY0IDIwLjYzNEw4Ny40MjA5IDIwLjI5NzFDODcuMjk0NiAxNy40NzU3IDg2LjcwNSAxMy4wMTIgODMuOTI1NyAxMy4wMTJDODMuMjUyIDEzLjAxMiA4Mi43ODg4IDEzLjEzODQgODEuOTQ2NiAxMy41NTk1QzgwLjgwOTYgMTUuNDk2NSA4MC4zNDY0IDE4Ljk5MTcgODAuMzQ2NCAyMC42MzRaIiBmaWxsPSIjRURFREVEIi8+CjxwYXRoIGQ9Ik0xNzguMjk1IDIzLjMyOUMxNzguMjk1IDI3LjM3MTYgMTgwLjA2MyAzMC40ODc4IDE4My41NTkgMzAuNDg3OEMxODUuMzY5IDMwLjQ4NzggMTg2LjgwMSAzMC4xMDg4IDE4OC40ODUgMjkuMzA4N0wxODkuNDU0IDMxLjU0MDVDMTg3LjcyNyAzMi45MzAxIDE4NS4yMDEgMzMuOTgyOSAxODIuMDQzIDMzLjk4MjlDMTc1Ljg5NCAzMy45ODI5IDE3Mi4zNTcgMjguNjc3IDE3Mi4zNTcgMjEuODU1MkMxNzIuMzU3IDE2LjA0NCAxNzQuOTI2IDkuNjg1MzUgMTgxLjk1OCA5LjY4NTM1QzE4OC4xMDYgOS42ODUzNSAxOTAuNDIyIDE1LjM3MDIgMTkwLjQyMiAyMS42ODY3TDE4OS44MzMgMjMuMjAyN0wxNzguMjk1IDIzLjMyOVpNMTc4LjIxMSAyMC42MzRMMTg1LjI4NSAyMC4yOTcxQzE4NS4xNTkgMTcuNDc1NyAxODQuNTY5IDEzLjAxMiAxODEuNzkgMTMuMDEyQzE4MS4xMTYgMTMuMDEyIDE4MC42NTMgMTMuMTM4NCAxNzkuODExIDEzLjU1OTVDMTc4LjY3NCAxNS40OTY1IDE3OC4yMTEgMTguOTkxNyAxNzguMjExIDIwLjYzNFoiIGZpbGw9IiNFREVERUQiLz4KPHBhdGggZD0iTTEzNy4xOTUgMjMuMzI5QzEzNy4xOTUgMjcuMzcxNiAxMzguOTY0IDMwLjQ4NzggMTQyLjQ1OSAzMC40ODc4QzE0NC4yNyAzMC40ODc4IDE0NS43MDIgMzAuMTA4OCAxNDcuMzg2IDI5LjMwODdMMTQ4LjM1NCAzMS41NDA1QzE0Ni42MjggMzIuOTMwMSAxNDQuMTAxIDMzLjk4MjkgMTQwLjk0MyAzMy45ODI5QzEzNC43OTUgMzMuOTgyOSAxMzEuMjU4IDI4LjY3NyAxMzEuMjU4IDIxLjg1NTJDMTMxLjI1OCAxNi4wNDQgMTMzLjgyNiA5LjY4NTM1IDE0MC44NTkgOS42ODUzNUMxNDcuMDA3IDkuNjg1MzUgMTQ5LjMyMyAxNS4zNzAyIDE0OS4zMjMgMjEuNjg2N0wxNDguNzMzIDIzLjIwMjdMMTM3LjE5NSAyMy4zMjlaTTEzNy4xMTEgMjAuNjM0TDE0NC4xODYgMjAuMjk3MUMxNDQuMDU5IDE3LjQ3NTcgMTQzLjQ3IDEzLjAxMiAxNDAuNjkgMTMuMDEyQzE0MC4wMTcgMTMuMDEyIDEzOS41NTMgMTMuMTM4NCAxMzguNzExIDEzLjU1OTVDMTM3LjU3NCAxNS40OTY1IDEzNy4wNjkgMTguOTkxNyAxMzcuMTExIDIwLjYzNFoiIGZpbGw9IiNFREVERUQiLz4KPHBhdGggZD0iTTIwNi4zNCAzMy42NDZMMjA1Ljc1MSAzMS42MjQ3QzIwNC4xOTIgMzMuMDk4NiAyMDIuNjc2IDMzLjk4MjkgMjAwLjMxOCAzMy45ODI5QzE5Ni42OTcgMzMuOTgyOSAxOTMuNDU0IDMyLjE3MjIgMTkzLjQ1NCAyNy4xNjExVjEzLjE4MDVMMTkwLjgwMSAxMi45Mjc4VjEwLjY5NkwxOTguNDY1IDkuODExNjdMMTk5LjA1NSAxMS44MzNWMjYuNDg3M0MxOTkuMDU1IDI5LjA1NiAyMDAuMTA4IDMwLjQwMzUgMjAyLjE3MSAzMC40MDM1QzIwMi43NjEgMzAuNDAzNSAyMDMuNTE5IDMwLjMxOTMgMjA0LjE5MiAzMC4wNjY3QzIwNC41NzEgMjkuNjg3NyAyMDQuOTUgMjkuMjI0NSAyMDUuMjQ1IDI4Ljc2MTNWMTMuMTgwNUwyMDIuNTA4IDEyLjkyNzhWMTAuNjk2TDIxMC4yNTYgOS44MTE2N0wyMTAuODQ2IDExLjgzM1YzMC42OTgzTDIxMy4yNDYgMzEuMTYxNUwyMTIuOTUxIDMzLjY0NkgyMDYuMzRaIiBmaWxsPSIjRURFREVEIi8+CjxwYXRoIGQ9Ik0xMDQuMDU0IDMwLjYxNDFDMTAyLjgzMyAzMC42MTQxIDEwMS44NjUgMzAuNDAzNSAxMDEuMTA3IDI5Ljk4MjRWMTUuMTE3NUMxMDEuNDQ0IDE0LjYxMjIgMTAxLjgyMyAxNC4xNDkgMTAyLjIwMSAxMy43Mjc5QzEwMi45MTcgMTMuNDc1MiAxMDMuNTQ5IDEzLjM5MSAxMDQuMzA3IDEzLjM5MUMxMDcuNDY1IDEzLjM5MSAxMDguMDEzIDE2LjU5MTQgMTA4LjAxMyAyMi4zMTg0QzEwOC4wMTMgMjcuODM0OCAxMDcuMTcgMjkuMzUwOCAxMDYuOTYgMjkuOTgyNEMxMDYuMDc2IDMwLjQwMzUgMTA1LjE0OSAzMC42MTQxIDEwNC4wNTQgMzAuNjE0MVpNMTEzLjQ4NyAyMS4zMDc3QzExMy40ODcgMTQuMTkxMSAxMTEuMzgyIDkuNzI3NDUgMTA2LjExOCA5LjcyNzQ1QzEwMi42MjMgOS43Mjc0NSAxMDAuOTggMTEuNzQ4NyAxMDAuMzA3IDEyLjU5MDlWMTEuNzkwOEw5OS43MTcgOS43Njk1Nkw5Mi44NTMgMTAuNzM4MVYxMy4xODA1TDk1LjUwNiAxMy41MTc0VjQyLjIzNjVMOTMuMjMyIDQyLjY5OTdMOTMuMTA1NyA0NS4xSDEwMy4yNTRMMTAzLjQyMyA0Mi42OTk3TDEwMS4wMjIgNDIuMjM2NVYzMy4xNDA3QzEwMS45OTEgMzMuNjg4MSAxMDMuMzM4IDM0LjAyNSAxMDQuODEyIDM0LjAyNUMxMTMuNDAzIDM0LjAyNSAxMTMuNDg3IDI1LjMwODIgMTEzLjQ4NyAyMS4zMDc3WiIgZmlsbD0iI0VERURFRCIvPgo8L2c+CjxkZWZzPgo8Y2xpcFBhdGggaWQ9ImNsaXAwXzEzMDNfMTcxIj4KPHJlY3Qgd2lkdGg9IjIyOS44MzgiIGhlaWdodD0iNDUuMSIgZmlsbD0id2hpdGUiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K" alt="">
+</div>
+
+
+<div>
+  <img class="w-1/2" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjE2IiBoZWlnaHQ9IjQ1IiB2aWV3Qm94PSIwIDAgMjE2IDQ1IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMTMxMl81MTIpIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0wLjM3NSAyLjYyNUg4LjI1QzEwLjEyNSAyLjYyNSAxMS42MjUgMyAxMy4xMjUgMy43NUMxNC4yNSA0LjEyNSAxNS4zNzUgNC44NzUgMTYuMTI1IDZMMTggOUwxOC4zNzUgMTIuNzVWMTQuMjVMMTggMTYuODc1TDE3LjI1IDE4Ljc1TDE2LjEyNSAyMC4yNUwxNC42MjUgMjEuMzc1QzE1Ljc1IDIyLjEyNSAxNi44NzUgMjIuODc1IDE3LjYyNSAyNC4zNzVMMTguMzc1IDI5LjI1VjMxLjVDMTguMzc1IDM0Ljg3NSAxNy42MjUgMzcuNSAxNS43NSAzOS4zNzVDMTQuMjUgNDEuMjUgMTEuNjI1IDQyIDcuODc1IDQySDAuMzc1VjIuNjI1Wk02IDM2LjM3NUg4LjI1TDEwLjg3NSAzNkwxMi4zNzUgMzQuNUwxMy4xMjUgMzIuMjVDMTMuMTM2MyAzMC42MTc0IDEzLjAxMDggMjguOTg2NyAxMi43NSAyNy4zNzVMMTIuMzc1IDI1LjVMMTAuODc1IDI0LjM3NUw4LjI1IDI0SDZWMzYuMzc1Wk02IDE4Ljc1SDguMjVDMTAuMTI1IDE4Ljc1IDExLjYyNSAxOC4zNzUgMTIgMTcuNjI1QzEyLjc1IDE2LjUgMTMuMTI1IDE1IDEzLjEyNSAxMy41QzEzLjEyNSAxMS42MjUgMTIuNzUgMTAuMTI1IDEyIDkuMzc1QzExLjI1IDguNjI1IDEwLjEyNSA4LjI1IDguMjUgOC4yNUg2VjE4Ljc1Wk00Ni44NzUgNDJINDEuNjI1TDM3LjUgMTYuNUgzNy4xMjVMMzMgNDJIMjcuNzVMMjEuNzUgMi42MjVIMjcuNzVMMzAuNzUgMjcuNzVMMzUuMjUgMi42MjVIMzkuMzc1TDQzLjg3NSAyOC4xMjVINDQuMjVMNDYuODc1IDIuNjI1SDUyLjg3NUw0Ni44NzUgNDJaIiBmaWxsPSIjRURFREVEIi8+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNjUuNjI1IDNINzMuODc1Qzc2Ljg3NSAzIDc5LjEyNSA0LjEyNSA4MSA1LjYyNUM4Mi41IDcuNSA4My4yNSAxMC4xMjUgODMuMjUgMTMuMTI1VjMxLjEyNUM4My4yNSAzNC44NzUgODIuNSAzNy41IDgwLjYyNSAzOUM3OS4xMjUgNDAuODc1IDc2LjUgNDEuNjI1IDczLjEyNSA0MS42MjVINjUuNjI1VjNaTTcxLjI1IDM2LjM3NUg3My41Qzc1IDM2LjM3NSA3Ni4xMjUgMzYgNzYuODc1IDM1LjI1Qzc3LjYyNSAzNC41IDc4IDMzLjM3NSA3OCAzMS41VjEzLjEyNUM3OCAxMS42MjUgNzcuNjI1IDEwLjUgNzYuODc1IDkuNzVDNzYuNSA4LjYyNSA3NS4zNzUgOC4yNSA3My41IDguMjVINzEuMjVWMzYuMzc1Wk04OC44NzUgMTguMzc1SDk0LjEyNVY0MS42MjVIODguODc1VjE4LjM3NVpNMTE3LjM3NSAxNC4yNUgxMTEuNzVWMTMuMTI1QzExMS43NSAxMS42MjUgMTExLjc1IDEwLjUgMTExIDkuNzVDMTEwLjYyNSA5IDEwOS41IDguMjUgMTA4IDguMjVMMTA2LjEyNSA4LjYyNUwxMDUgOS43NUwxMDQuNjI1IDExLjYyNUwxMDQuMjUgMTMuNVYxNS4zNzVMMTA0LjYyNSAxNi41TDEwNS43NSAxNy42MjVMMTA3LjYyNSAxOC4zNzVMMTExLjc1IDIwLjI1TDExNC43NSAyMS43NUwxMTYuMjUgMjRMMTE3LjM3NSAyN0MxMTcuNjQxIDI5Ljc1MzkgMTE3LjUxNSAzMi41MzE2IDExNyAzNS4yNUMxMTYuNjI1IDM2LjM3NSAxMTYuMjUgMzcuODc1IDExNS41IDM4LjYyNUwxMTIuNSA0MS4yNUwxMDggNDJDMTA1LjQ5NiA0Mi4wMjQxIDEwMy4wOCA0MS4wODQyIDEwMS4yNSAzOS4zNzVDMTAwLjQxNSAzOC41MzcxIDk5Ljc1MzMgMzcuNTQyNyA5OS4zMDI5IDM2LjQ0ODhDOTguODUyNCAzNS4zNTQ5IDk4LjYyMjEgMzQuMTgzIDk4LjYyNSAzM1YzMC43NUgxMDMuODc1VjMyLjYyNUMxMDMuODc1IDMzLjM3NSAxMDQuMjUgMzQuNSAxMDUgMzUuMjVDMTA1LjM3NSAzNiAxMDYuNSAzNi4zNzUgMTA4IDM2LjM3NUwxMTAuMjUgMzZMMTExLjM3NSAzNC44NzVMMTExLjc1IDMzQzExMS45MTUgMzEuMzc5MiAxMTEuOTE1IDI5Ljc0NTggMTExLjc1IDI4LjEyNUwxMTEuMzc1IDI2LjYyNUwxMTAuMjUgMjUuODc1TDEwOC43NSAyNC43NUwxMDQuNjI1IDIzLjI1QzEwMi4zNzUgMjIuMTI1IDEwMC44NzUgMjEgMTAwLjEyNSAxOS41Qzk5LjM3NSAxNy42MjUgOTguNjI1IDE1Ljc1IDk4LjYyNSAxMy41TDk5LjM3NSA5LjM3NUM5OS43NSA3Ljg3NSAxMDAuNSA2Ljc1IDEwMS4yNSA2QzEwMiA0Ljg3NSAxMDIuNzUgNC4xMjUgMTA0LjI1IDMuNzVDMTA1LjM3NSAzIDEwNi41IDMgMTA4LjM3NSAzQzExMC4xMSAyLjk4NjgyIDExMS44MTIgMy40NzUzNiAxMTMuMjc1IDQuNDA2NzlDMTE0LjczOSA1LjMzODIyIDExNS45MDIgNi42NzI4NCAxMTYuNjI1IDguMjVDMTE3LjM3NSA5LjM3NSAxMTcuMzc1IDEwLjUgMTE3LjM3NSAxMS42MjVWMTQuMjVaTTE3MS43NSAzM0MxNzEuNzc0IDM0LjE4NiAxNzEuNTU0IDM1LjM2NDMgMTcxLjEwMiAzNi40NjEyQzE3MC42NTEgMzcuNTU4MSAxNjkuOTc3IDM4LjU1IDE2OS4xMjUgMzkuMzc1QzE2OC4yODcgNDAuMjEgMTY3LjI5MyA0MC44NzE3IDE2Ni4xOTkgNDEuMzIyMUMxNjUuMTA1IDQxLjc3MjYgMTYzLjkzMyA0Mi4wMDI5IDE2Mi43NSA0MkMxNjEuNTY0IDQyLjAyNDQgMTYwLjM4NiA0MS44MDM4IDE1OS4yODkgNDEuMzUyMkMxNTguMTkyIDQwLjkwMDUgMTU3LjIgNDAuMjI3NCAxNTYuMzc1IDM5LjM3NUMxNTUuNTQgMzguNTM3MSAxNTQuODc4IDM3LjU0MjcgMTU0LjQyOCAzNi40NDg4QzE1My45NzcgMzUuMzU0OSAxNTMuNzQ3IDM0LjE4MyAxNTMuNzUgMzNWM0gxNTkuMzc1VjMyLjYyNUMxNTkuMzc1IDMzLjc1IDE1OS43NSAzNC44NzUgMTYwLjUgMzUuNjI1TDE2Mi43NSAzNi4zNzVMMTY1LjM3NSAzNS42MjVMMTY2LjEyNSAzMi42MjVWM0gxNzEuNzVWMzNaTTE3NyAzSDE4NS4yNUwxODkgMy43NUMxOTAuNSA0LjEyNSAxOTEuMjUgNC44NzUgMTkyLjM3NSA2TDE5NC4yNSA5LjM3NUwxOTQuNjI1IDE1VjE5LjEyNUMxOTQuNDAxIDIwLjQ1NzIgMTkzLjg4MSAyMS43MjIgMTkzLjEwMiAyMi44MjU2QzE5Mi4zMjMgMjMuOTI5MSAxOTEuMzA1IDI0Ljg0MzIgMTkwLjEyNSAyNS41QzE4OSAyNi4yNSAxODcuMTI1IDI2LjYyNSAxODUuMjUgMjYuNjI1SDE4Mi4yNVY0MS42MjVIMTc3VjNaTTE4Mi42MjUgMjEuMzc1SDE4NS42MjVMMTg3Ljg3NSAyMUwxODkuMzc1IDE5LjVMMTg5Ljc1IDE3LjYyNUMxODkuODY4IDE1Ljg3NyAxODkuODY4IDE0LjEyMyAxODkuNzUgMTIuMzc1TDE4OS4zNzUgMTAuMTI1TDE4OC4yNSA5TDE4NS42MjUgOC4yNUgxODIuNjI1VjIxLjM3NVpNMjAyLjUgOC4yNUgxOTYuMTI1VjNIMjE0LjVWOC4yNUgyMDguMTI1VjQxLjYyNUgyMDIuNVY4LjI1Wk0xMzUgMTguMzc1TDEzNy42MjUgMTkuODc1TDEzOS44NzUgMjFMMTQxLjc1IDIwLjYyNUwxNDMuMjUgMTkuMTI1QzE0NC4yMDcgMTcuNzM3NyAxNDQuOTY0IDE2LjIyMjkgMTQ1LjUgMTQuNjI1TDE0NS44NzUgMTIuNzVMMTQ1LjUgMTAuODc1TDE0My4yNSA5LjM3NUwxNDEgNy44NzVMMTM1IDE4LjM3NVpNMTM4Ljc1IDAuNzVMMTQ2LjYyNSA1LjI1QzE1MS44NzUgOC42MjUgMTUzIDEzLjUgMTQ5LjI1IDE5Ljg3NUMxNDguMTI1IDIxLjc1IDE0NyAyMy4yNSAxNDUuNSAyNC4zNzVDMTQ0IDI1LjUgMTQyLjUgMjUuODc1IDE0MC4yNSAyNS44NzVMMTM2LjUgNDMuODc1TDEzMS42MjUgNDEuMjVMMTM1LjM3NSAyNC4zNzVMMTMyLjM3NSAyMi41TDEyNC41IDM2Ljc1TDExOS42MjUgMzQuMTI1TDEzOC43NSAwLjc1WiIgZmlsbD0iI0VERURFRCIgc3Ryb2tlPSIjRURFREVEIiBzdHJva2Utd2lkdGg9IjMiLz4KPHBhdGggZD0iTTk1LjI1IDkuMzc1Qzk1LjI1IDExLjYyNSA5My4zNzUgMTMuNSA5MS4xMjUgMTMuNUM4OS4yNSAxMy41IDg3LjM3NSAxMS42MjUgODcuMzc1IDkuMzc1Qzg3LjM3NSA3Ljg3NSA4OC4xMjUgNi4zNzUgODkuMjUgNkM4OS42MjUgNS42MjUgOTAgNS4yNSA4OS42MjUgNC44NzVDODkuNjI1IDQuNSA4OC44NzUgNC4xMjUgODguNSA0LjVDODYuNjI1IDUuMjUgODUuNSA3LjUgODUuNSA5LjM3NUM4NS41IDEyLjc1IDg4LjEyNSAxNS4zNzUgOTEuNSAxNS4zNzVDOTQuNSAxNS4zNzUgOTcuMTI1IDEyLjc1IDk3LjEyNSA5LjM3NUM5Ny4xMjUgNy41IDk2IDUuMjUgOTQuMTI1IDQuNUM5My43NSA0LjEyNSA5MyA0LjUgOTMgNC44NzVDOTIuNjI1IDUuMjUgOTMgNS42MjUgOTMuMzc1IDZDOTQuNSA2LjM3NSA5NS4yNSA3Ljg3NSA5NS4yNSA5LjM3NVpNOTAuMzc1IDlMOTEuMTI1IDkuNzVDOTEuODc1IDkuNzUgOTIuMjUgOS4zNzUgOTIuMjUgOVYzLjc1QzkyLjI1IDMgOTEuODc1IDIuNjI1IDkxLjEyNSAyLjYyNUM5MC43NSAyLjYyNSA5MC4zNzUgMyA5MC4zNzUgMy43NVY5WiIgZmlsbD0iI0VERURFRCIvPgo8L2c+CjxkZWZzPgo8Y2xpcFBhdGggaWQ9ImNsaXAwXzEzMTJfNTEyIj4KPHJlY3Qgd2lkdGg9IjIxNS4yNSIgaGVpZ2h0PSI0NSIgZmlsbD0id2hpdGUiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K" alt="">
+</div>
+
+<div>
+  <img class="w-3/4" src="https://kombai.com/static/economic-times-logo-c59fbde5128eb91187213f0028e26dfa.svg" alt="">
+</div>
+
+</section>
+<!-- experience section end -->
+
+
+<hr class="opacity-25">
+
+
+
+
+<!-- footer section start  -->
+<section class="p-20">
+  <footer class="footer items-center text-neutral-content">
+    <aside class="items-center ">
+   <div class="w-fit md:w-1/3">
+    <img src="data:image/png;base64,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" alt="">
+  </div>
+      <p class="flex gap-4 mt-7 mx-auto md:mx-0"> <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg>
+      </a>
+      <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg></a></p>
+    </aside> 
+    <nav class="grid-flow-row md:grid-flow-col gap-20 md:place-self-center md:justify-self-end mx-auto md:mx-0">
+      <nav class="flex flex-col gap-2">
+        <h6 class="footer-title text-white font-bold text-lg">Resources        </h6> 
+        <a class="link link-hover">Docs</a>
+        <a class="link link-hover">Blog</a>
+        <a class="link link-hover">Email Template</a>
+      </nav> 
+      <nav class="flex flex-col gap-2">
+        <h6 class="footer-title text-white font-bold text-lg">Legal Stuff        </h6> 
+        <a class="link link-hover">Terms and Conditions</a>
+        <a class="link link-hover">Privacy Policy</a>
+        <a class="link link-hover">Acceptable use Policy</a>
+      </nav> 
+    </nav>
+  </footer>
+</section>
+<!-- footer section end -->
+
+
+</body>
+</html>
